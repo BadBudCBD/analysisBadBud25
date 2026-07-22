@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>BadBud Analysis</title>
+</head>
+<body>
+    <h1>Le Nostre Analisi</h1>
+    <ul>
+        <li><a href="amnesia.html">Amnesia</a></li>
+        <li><a href="citroncookies.html">Citron Cookies</a></li>
+        <!-- Aggiungi qui le altre -->
+    </ul>
+</body>
+</html>
