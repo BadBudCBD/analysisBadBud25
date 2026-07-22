@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizzazione PDF - Landing Page</title>
+    <title>Certificati di Analisi - Landing Page</title>
     <style>
-        /* Stili opzionali per centrare e dare un aspetto pulito alla sezione PDF */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -15,15 +14,27 @@
             flex-direction: column;
             align-items: center;
         }
+        .selector-container {
+            margin: 15px 0;
+            text-align: center;
+        }
+        select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+        }
         .pdf-container {
             width: 100%;
-            max-width: 800px; /* Imposta la larghezza massima che preferisci per la landing */
-            height: 600px;  /* Altezza del riquadro di visualizzazione */
+            max-width: 800px;
+            height: 600px;
             background: #fff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         embed {
             width: 100%;
@@ -39,17 +50,46 @@
 <body>
 
     <h1>Certificato di Analisi</h1>
-    <p>Ecco i dettagli delle determinazioni quali-quantitative:</p>
+    <p>Seleziona la varietà per visualizzare i dettagli delle analisi:</p>
+
+    <!-- Menu a tendina per cambiare PDF -->
+    <div class="selector-container">
+        <select id="pdfSelect" onchange="changePdf()">
+            <option value="whitewidow.pdf">White Widow</option>
+            <option value="amnesia.pdf">Amnesia</option>
+            <option value="amnesiahaze.pdf">Amnesia Haze</option>
+            <option value="cheese.pdf">Cheese</option>
+            <option value="cherrypunch.pdf">Cherry Punch</option>
+            <option value="citroncookies.pdf">Citron Cookies</option>
+            <option value="forbiddenfruit.pdf">Forbidden Fruit</option>
+            <option value="laconfidential.pdf">LA Confidential</option>
+            <option value="skittlescake.pdf">Skittles Cake</option>
+            <option value="strawbery.pdf">Strawbery</option>
+            <option value="superskunk.pdf">Super Skunk</option>
+            <option value="tropicana.pdf">Tropicana</option>
+        </select>
+    </div>
 
     <!-- Contenitore con il PDF incorporato -->
     <div class="pdf-container">
-        <embed src="whitewidow.pdf" type="application/pdf">
+        <embed id="pdfViewer" src="whitewidow.pdf" type="application/pdf">
     </div>
 
-    <!-- Messaggio di fallback nel caso in cui il browser del visitor non supporti i PDF -->
+    <!-- Link di fallback -->
     <div class="fallback-link">
-        <p>Il tuo browser non supporta la visualizzazione diretta dei PDF. Puoi <a href="whitewidow.pdf" target="_blank">scaricare il file PDF qui</a>.</p>
+        <p>Il tuo browser non supporta la visualizzazione diretta. Puoi <a id="downloadLink" href="whitewidow.pdf" target="_blank">scaricare il file PDF qui</a>.</p>
     </div>
+
+    <script>
+        function changePdf() {
+            var selectBox = document.getElementById("pdfSelect");
+            var selectedFile = selectBox.value;
+            
+            // Aggiorna l'embed e il link di scaricamento in base alla selezione
+            document.getElementById("pdfViewer").src = selectedFile;
+            document.getElementById("downloadLink").href = selectedFile;
+        }
+    </script>
 
 </body>
 </html>
