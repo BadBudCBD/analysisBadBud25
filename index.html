@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificati di Analisi - Landing Page</title>
+    <title>Certificate of Analysis - Landing Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,8 +49,8 @@
 </head>
 <body>
 
-    <h1>Certificato di Analisi</h1>
-    <p>Seleziona la varietà per visualizzare i dettagli delle analisi:</p>
+    <h1>Certificate of Analysis</h1>
+    <p>Select the variety to view the analysis details:</p>
 
     <!-- Menu a tendina per cambiare PDF -->
     <div class="selector-container">
@@ -77,7 +77,7 @@
 
     <!-- Link di fallback -->
     <div class="fallback-link">
-        <p>Il tuo browser non supporta la visualizzazione diretta. Puoi <a id="downloadLink" href="whitewidow.pdf" target="_blank">scaricare il file PDF qui</a>.</p>
+        <p>Your browser does not support direct PDF viewing. You can <a id="downloadLink" href="whitewidow.pdf" target="_blank">download the PDF file here</a>.</p>
     </div>
 
     <script>
@@ -85,7 +85,6 @@
             var selectBox = document.getElementById("pdfSelect");
             var selectedFile = selectBox.value;
             
-            // Aggiorna l'embed e il link di scaricamento in base alla selezione
             document.getElementById("pdfViewer").src = selectedFile;
             document.getElementById("downloadLink").href = selectedFile;
         }
